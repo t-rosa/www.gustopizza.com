@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Setting Up the Development Environment with Docker
 
-## Getting Started
+We use Docker and Docker Compose to simplify the setup of the development environment. This allows you to run the application and all its associated services in containers without having to install any additional dependencies on your local machine.
 
-First, run the development server:
+### Prerequisites
+
+- [Docker](https://docs.docker.com/get-docker/)
+- [Git](https://git-scm.com/downloads)
+
+### Getting Started
+
+1. Clone the repository on your local machine:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+git clone https://github.com/t-rosa/www.gustopizza.com.git
+cd www.gustopizza.com
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Copy the `.env.example` file as `.env`:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cp .env.example .env
+```
 
-[http://localhost:3000/api/hello](http://localhost:3000/api/hello) is an endpoint that uses [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers). This endpoint can be edited in `app/api/hello/route.ts`.
+Modify the `.env` file by adding your own values for the environment variables if necessary.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Launch the application and associated services using Docker Compose:
 
-## Learn More
+```bash
+docker compose up
+```
 
-To learn more about Next.js, take a look at the following resources:
+This command will build the Docker images, create and start the containers for the application and the database. The application files are shared between your local machine and the container using bind mounts, enabling real-time development.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Access the application in your browser at [http://localhost:3000](http://localhost:3000).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Useful Commands
 
-## Deploy on Vercel
+- Stop containers and remove associated resources:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+docker compose down
+```
+- Restart a specific service (e.g., `web`):
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+docker compose restart web
+```
+
+- Execute commands inside a specific container (e.g., `web`):
+
+```bash
+docker-compose exec web <command>
+```
+
+Replace `<command>` with the command you want to execute inside the container.
