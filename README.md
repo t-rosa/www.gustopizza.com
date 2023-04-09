@@ -53,6 +53,7 @@ docker exec web npm install <package_name>
 ```bash
 docker compose down
 ```
+
 - Restart a specific service (e.g., `web`):
 
 ```bash
