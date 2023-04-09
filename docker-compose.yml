@@ -1,18 +1,25 @@
 version: "3.9"
 services:
   web:
-    container_name: "gusto_web"
+    container_name: gusto_web
     build: .
-    image: "gusto_web"
+    image: gusto_web
     ports:
-      - "3000:3000"
+      - 3000:3000
     volumes:
       - .:/app
       - /app/node_modules
     depends_on:
       - db
+  test:
+    container_name: gusto_test
+    image: gusto_web
+    command: npm test
+    volumes:
+      - .:/app
+      - /app/node_modules
   db:
-    container_name: "gusto_db"
+    container_name: gusto_db
     image: mysql:8.0.32
     command: --default-authentication-plugin=mysql_native_password
     environment:
@@ -23,9 +30,7 @@ services:
     volumes:
       - mysql:/var/lib/mysql
     ports:
-      - "3306:3306"
+      - 3306:3306
 
 volumes:
   mysql:
-
-

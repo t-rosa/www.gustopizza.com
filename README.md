@@ -36,6 +36,18 @@ This command will build the Docker images, create and start the containers for t
 
 ### Useful Commands
 
+- Running tests
+
+```bash
+docker compose run test
+```
+
+- Add a new dependency
+
+```bash
+docker exec web npm install <package_name>
+```
+
 - Stop containers and remove associated resources:
 
 ```bash
