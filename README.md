@@ -62,7 +62,7 @@ docker compose restart web
 - Execute commands inside a specific container (e.g., `web`):
 
 ```bash
-docker-compose exec web <command>
+docker compose exec web <command>
 ```
 
 Replace `<command>` with the command you want to execute inside the container.
