@@ -16,7 +16,22 @@ git clone https://github.com/t-rosa/www.gustopizza.com.git
 cd www.gustopizza.com
 ```
 
-2. Copy the `.env.example` file as `.env`:
+2. Intialize git flow
+
+- [Git flow cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/)
+
+```bash
+git flow init
+```
+
+Use the default branch name options (main, develop, feature/,etc)
+
+3. Checkout the branch
+```bash
+git checkout <branch>
+```
+
+4. Copy the `.env.example` file as `.env`:
 
 ```bash
 cp .env.example .env
@@ -24,7 +39,7 @@ cp .env.example .env
 
 Modify the `.env` file by adding your own values for the environment variables if necessary.
 
-3. Launch the application and associated services using Docker Compose:
+5. Launch the application and associated services using Docker Compose:
 
 ```bash
 docker compose up
@@ -32,7 +47,7 @@ docker compose up
 
 This command will build the Docker images, create and start the containers for the application and the database. The application files are shared between your local machine and the container using bind mounts, enabling real-time development.
 
-4. Access the application in your browser at [http://localhost:3000](http://localhost:3000).
+6. Access the application in your browser at [http://localhost:3000](http://localhost:3000).
 
 ### Useful Commands
 
@@ -67,3 +82,9 @@ docker compose exec web <command>
 ```
 
 Replace `<command>` with the command you want to execute inside the container.
+
+- Show logs:
+
+```bash
+docker compose logs <container-name>
+```
