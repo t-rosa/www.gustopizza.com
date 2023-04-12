@@ -49,7 +49,7 @@ This command will build the Docker images, create and start the containers for t
 
 6. Access the application in your browser at [http://localhost:3000](http://localhost:3000).
 
-## Remote/Local development
+### Remote/Local development
 
 Use [Visual Studio Code dev containers](https://code.visualstudio.com/docs/devcontainers/containers) to attach directly to the running container
 
