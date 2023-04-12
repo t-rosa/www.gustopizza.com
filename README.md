@@ -49,19 +49,14 @@ This command will build the Docker images, create and start the containers for t
 
 6. Access the application in your browser at [http://localhost:3000](http://localhost:3000).
 
-7. Remote development (Visual Studio Code)
+## Remote/Local development
 
-Use [Visual Studio Code dev containers](https://code.visualstudio.com/docs/devcontainers/containers) to edit the code
+Use [Visual Studio Code dev containers](https://code.visualstudio.com/docs/devcontainers/containers) to attach directly to the running container
 
-8. Local development (Neovim)
-
-- Install local dependencies to remove lint error
+Or install local dependencies to remove lint error and launch your IDE locally
 ```bash
 sudo chmod 777 -R node_modules && npm i
 ```
-
-- Launch your IDE on locally
-
 ### Useful Commands
 
 - Running tests
