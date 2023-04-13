@@ -36,10 +36,11 @@ jobs:
         uses: aaron-binary/vercel-preview-url-action@v0.0.3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/checkout@v2
 
       - name: Setup Chrome
-        uses: browser-actions/setup-chrome@latest
+        uses: browser-actions/setup-chrome@v1
+
+      - uses: actions/checkout@v3
 
       - name: Audit preview URL with Lighthouse
         id: lighthouse_audit
