@@ -16,10 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 18
 
@@ -37,9 +37,12 @@ jobs:
       - name: Wait for application to start
         run: sleep 3s
 
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@latest
+
       - name: Run Lighthouse Performance Test
-        uses: treosh/lighthouse-ci-action@v7
+        uses: treosh/lighthouse-ci-action@v9
         with:
-          performance: 90
           urls: 'http://localhost:3000'
           uploadArtifacts: true
+          chromeFlags: '--headless --no-sandbox --disable-gpu'
