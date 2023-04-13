@@ -29,8 +29,13 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Start
-        run: npm run start
+      - name: Start the Node.js server
+        run: npm run start &
+        env:
+          CI: true
+
+      - name: Wait for application to start
+        run: sleep 3s
 
       - name: Run Lighthouse Performance Test
         uses: treosh/lighthouse-ci-action@v7
