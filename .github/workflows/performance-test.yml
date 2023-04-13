@@ -23,6 +23,8 @@ jobs:
           header: lighthouse
           message: |
             Running Lighthouse audit...
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@latest
       - name: Waiting for 200 from the Vercel Preview
         uses: patrickedqvist/wait-for-vercel-preview@v1.3.1
         id: waitFor200
