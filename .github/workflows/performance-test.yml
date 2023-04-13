@@ -1,0 +1,40 @@
+name: Performance Test
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  performance_test:
+    name: Performance Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Start
+        run: npm run start
+
+      - name: Run Lighthouse Performance Test
+        uses: treosh/lighthouse-ci-action@v7
+        with:
+          performance: 90
+          urls: 'http://localhost:3000'
+          uploadArtifacts: true

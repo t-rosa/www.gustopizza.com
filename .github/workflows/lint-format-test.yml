@@ -1,7 +1,12 @@
-name: Execute lint, format and tests on push
+name: Execute lint, format and tests
 
 on:
   push:
+    branches:
+      - main
+      - develop
+
+  pull_request:
     branches:
       - main
       - develop
