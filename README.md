@@ -49,6 +49,10 @@ Modify the `.env` file by adding your own values for the environment variables i
 
 2. Use [Visual Studio Code dev containers](https://code.visualstudio.com/docs/devcontainers/containers) to attach directly to the running container
 
+3. Start developing by following the workflow
+
+- [Workflow guide](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
+
 ### Local development process
 
 1. Copy the `.env.example` file as `.env`:
@@ -62,6 +66,11 @@ cp .env.example .env
 ```bash
 sudo chmod 777 -R node_modules && npm i
 ```
+
+3. Start developing by following the workflow
+
+- [Workflow guide](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
+
 ### Useful Commands
 
 - Running tests

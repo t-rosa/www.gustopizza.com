@@ -18,6 +18,9 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
+    depends_on:
+      - web
+      - db
   db:
     container_name: gusto_db
     image: mysql:8.0.32
