@@ -30,7 +30,7 @@ Use the default branch name options (main, develop, feature/,etc)
 3. Launch the application and associated services using Docker Compose:
 
 ```bash
-docker compose up
+docker compose build && docker compose up
 ```
 
 This command will build the Docker images, create and start the containers for the application and the database. The application files are shared between your local machine and the container using bind mounts, enabling real-time development.
