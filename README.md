@@ -18,7 +18,8 @@ cd www.gustopizza.com
 
 2. Intialize git flow
 
-- [Git flow cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/)
+- [Install Gitflow CLI](http://danielkummer.github.io/git-flow-cheatsheet/)
+- [Workflow guide](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
 
 ```bash
 git flow init
@@ -26,20 +27,7 @@ git flow init
 
 Use the default branch name options (main, develop, feature/,etc)
 
-3. Checkout the branch
-```bash
-git checkout <branch>
-```
-
-4. Copy the `.env.example` file as `.env`:
-
-```bash
-cp .env.example .env
-```
-
-Modify the `.env` file by adding your own values for the environment variables if necessary.
-
-5. Launch the application and associated services using Docker Compose:
+3. Launch the application and associated services using Docker Compose:
 
 ```bash
 docker compose up
@@ -47,13 +35,30 @@ docker compose up
 
 This command will build the Docker images, create and start the containers for the application and the database. The application files are shared between your local machine and the container using bind mounts, enabling real-time development.
 
-6. Access the application in your browser at [http://localhost:3000](http://localhost:3000).
+4. Access the application in your browser at [http://localhost:3000](http://localhost:3000).
 
-### Remote/Local development
+### Remote development process
 
-Use [Visual Studio Code dev containers](https://code.visualstudio.com/docs/devcontainers/containers) to attach directly to the running container
+1. Copy the `.env.example` file as `.env`:
 
-Or install local dependencies to remove lint error and launch your IDE locally
+```bash
+cp .env.example .env
+```
+
+Modify the `.env` file by adding your own values for the environment variables if necessary.
+
+2. Use [Visual Studio Code dev containers](https://code.visualstudio.com/docs/devcontainers/containers) to attach directly to the running container
+
+### Local development process
+
+1. Copy the `.env.example` file as `.env`:
+
+```bash
+cp .env.example .env
+```
+
+2. install local dependencies to remove lint error and launch your IDE locally
+
 ```bash
 sudo chmod 777 -R node_modules && npm i
 ```
