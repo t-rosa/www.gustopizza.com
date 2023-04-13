@@ -1,8 +1,10 @@
 name: Performance test
 
 on:
-  issue_comment:
-    types: [ edited ]
+  pull_request:
+    branches:
+      - main
+      - develop
 
 jobs:
   performance_test:
