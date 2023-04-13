@@ -6,6 +6,9 @@ on:
       - main
       - develop
 
+permissions:
+  pull-requests: write
+
 jobs:
   performance_test:
     timeout-minutes: 30
