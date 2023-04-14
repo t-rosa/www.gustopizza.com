@@ -26,28 +26,16 @@ jobs:
 
       - name: Waiting for 200 from the Vercel Preview
         uses: patrickedqvist/wait-for-vercel-preview@v1.3.1
-        id: waitFor200
+        id: waitForVercel
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           max_timeout: 60
-
-      - name: Capture Vercel preview URL
-        id: vercel_preview_url
-        uses: aaron-binary/vercel-preview-url-action@v0.0.3
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Setup Chrome
-        uses: browser-actions/setup-chrome@v1
-
-      - uses: actions/checkout@v3
 
       - name: Audit preview URL with Lighthouse
         id: lighthouse_audit
         uses: treosh/lighthouse-ci-action@v3
         with:
-          urls: |
-            ${{ steps.waitFor200.outputs.url }}
+          urls: ${{ steps.waitForVercel.outputs.url }}
           uploadArtifacts: true
           temporaryPublicStorage: true
 
