@@ -17,6 +17,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
       - name: Add comment to PR
         id: loading_comment_to_pr
         uses: marocchino/sticky-pull-request-comment@v1
@@ -39,6 +43,7 @@ jobs:
 
       - name: Run Lighthouse Performance Test
         uses: treosh/lighthouse-ci-action@v9
+        id: lighthouse_audit
         with:
           urls: ${{ steps.waitForVercel.outputs.url }}
           uploadArtifacts: true
