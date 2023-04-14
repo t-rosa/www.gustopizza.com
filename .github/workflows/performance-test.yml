@@ -31,9 +31,11 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           max_timeout: 60
 
-      - name: Audit preview URL with Lighthouse
-        id: lighthouse_audit
-        uses: treosh/lighthouse-ci-action@v3
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@latest
+
+      - name: Run Lighthouse Performance Test
+        uses: treosh/lighthouse-ci-action@v9
         with:
           urls: ${{ steps.waitForVercel.outputs.url }}
           uploadArtifacts: true
