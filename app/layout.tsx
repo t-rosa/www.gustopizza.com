@@ -9,7 +9,10 @@ export const metadata = {
 export default function RootLayout({ children, }: PropsWithChildren) {
   return (
     <html lang="fr">
-      <body>{children}</body>
+      <body>
+        <header>Gusto Pizza</header>
+        {children}
+      </body>
     </html>
   )
 }
