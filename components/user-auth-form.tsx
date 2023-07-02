@@ -48,7 +48,6 @@ export function UserAuthForm() {
 
     setIsLoading(false)
 
-    console.log(signInResult)
     if (signInResult?.error) {
       return toast({
         title: "Il y a eu un problème.",
@@ -57,19 +56,19 @@ export function UserAuthForm() {
       })
     }
 
-    toast({
+    router.refresh()
+
+    return toast({
       title: "Connexion réussie",
       description: "Bienvenue chez Gusto Pizza !",
     })
-
-    router.push("/pizzas")
   }
 
   return (
     <>
-      <div className="pb-6 pt-12">
+      <div className="pb-6 pt-12 flex flex-col items-center">
         <h3 className="text-2xl text-center">Connectez-vous</h3>
-        <Link href="/register" className="block text-sm text-muted-foreground text-center">Ou créer un compte</Link>
+        <Link href="/register" className="text-sm text-muted-foreground">Ou créer un compte</Link>
       </div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="max-w-sm space-y-8 mx-auto">
