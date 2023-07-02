@@ -2,23 +2,45 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+Setup your env variables:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+cp ./env.example ./env
+```
+
+Run the postgres container:
+
+```bash
+docker compose up -d
+```
+
+Install the dependencies:
+
+```bash
+npm i
+```
+
+Run the prisma migration:
+
+```bash
+npx prisma migrate dev
+```
+
+Install the dependencies:
+
+```bash
+npm i
+```
+
+Launch the dev server:
+
+```bash
+npm run dev 
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-[http://localhost:3000/api/hello](http://localhost:3000/api/hello) is an endpoint that uses [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers). This endpoint can be edited in `app/api/hello/route.ts`.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ## Learn More
 

@@ -1,8 +1,9 @@
 import { PropsWithChildren } from "react";
+
 import { getCurrentUser } from '@/lib/session';
 import { UserAccountNav } from "@/components/user-account-nav";
 
-export default async function OrderLayout({ children }: PropsWithChildren) {
+export default async function UserLayout({ children }: PropsWithChildren) {
   const user = await getCurrentUser()
 
   return (
@@ -12,7 +13,6 @@ export default async function OrderLayout({ children }: PropsWithChildren) {
         {user && <UserAccountNav user={user} />}
       </header>
       <main>{children}</main>
-      <footer>Panier</footer>
     </>
   )
 }

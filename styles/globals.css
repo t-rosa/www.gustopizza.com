@@ -75,4 +75,8 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  .header-image {
+    background: url('/home.png'), lightgray 50% / cover no-repeat;
+  }
 }
