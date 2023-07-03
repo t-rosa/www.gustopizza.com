@@ -16,7 +16,7 @@ git clone https://github.com/t-rosa/www.gustopizza.com.git
 cd www.gustopizza.com
 ```
 
-2. Intialize git flow
+2. (optional) Intialize git flow
 
 - [Install Gitflow CLI](http://danielkummer.github.io/git-flow-cheatsheet/)
 - [Workflow guide](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
@@ -35,7 +35,13 @@ docker compose build && docker compose up
 
 This command will build the Docker images, create and start the containers for the application and the database. The application files are shared between your local machine and the container using bind mounts, enabling real-time development.
 
-4. Access the application in your browser at [http://localhost:3000](http://localhost:3000).
+4. Run Prisma migration
+
+```bash
+npx prisma migrate dev
+```
+
+5. Access the application in your browser at [http://localhost:3000](http://localhost:3000).
 
 ### Remote development process
 
