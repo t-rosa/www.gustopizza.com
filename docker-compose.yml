@@ -1,0 +1,15 @@
+services:
+  gusto-postgres:
+    container_name: "gusto-postgres"
+    image: postgres:15
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgresql-data:/var/lib/postgresql/data
+      - ./postgres-init-scripts:/docker-entrypoint-initdb.d
+
+volumes:
+  postgresql-data:
