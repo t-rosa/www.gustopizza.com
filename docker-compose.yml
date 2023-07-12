@@ -10,7 +10,7 @@ services:
       - .:/app
       - /app/node_modules
     depends_on:
-      - db
+      - gusto-postgres
   test:
     container_name: gusto_test
     image: gusto_web
@@ -19,7 +19,7 @@ services:
       - .:/app
       - /app/node_modules
     depends_on:
-      - db
+      - gusto-postgres
   gusto-postgres:
     container_name: "gusto-postgres"
     image: postgres:15
